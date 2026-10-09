@@ -1,328 +1,37 @@
 <!doctype html>
 <html lang="vi">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="theme-color" content="#fffaf6" />
-  <meta name="description" content="Hoa Kiều Linh — boutique florist chỉ chuyên Hoa Ly tại Vinhomes Smart City, Tây Mỗ, Hà Nội." />
-  <title>Hoa Kiều Linh — Chỉ Hoa Ly</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --paper:#fffdf9;
-      --white:#ffffff;
-      --ink:#24483a;
-      --ink-soft:#577166;
-      --pink:#ff7ea8;
-      --rose:#ffb7cf;
-      --peach:#ffb36b;
-      --yellow:#ffd95c;
-      --mint:#9be5c4;
-      --aqua:#83dff1;
-      --lilac:#c9b5ff;
-      --violet:#a68cff;
-      --leaf:#62b985;
-      --line:rgba(36,72,58,.14);
-      --shadow:0 28px 90px rgba(95,78,115,.14);
-      --sans:"Inter",system-ui,sans-serif;
-      --serif:"Instrument Serif",Georgia,serif;
-      --mx:0px;
-      --my:0px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth;background:var(--paper)}
-    body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);overflow-x:hidden}
-    a{color:inherit;text-decoration:none}
-    button,input,textarea,select{font:inherit}
-    img{display:block;width:100%;height:100%;object-fit:cover}
-    ::selection{background:var(--rose);color:var(--ink)}
-    .container{width:min(1220px,calc(100% - 48px));margin:auto}
-    .serif{font-family:var(--serif);font-style:italic;font-weight:400}
-
-    .glass{
-      background:rgba(255,255,255,.66);
-      backdrop-filter:blur(18px) saturate(1.2);
-      -webkit-backdrop-filter:blur(18px) saturate(1.2);
-      border:1px solid rgba(255,255,255,.84);
-      box-shadow:inset 0 1px 0 rgba(255,255,255,.95),0 18px 54px rgba(113,91,137,.10);
-    }
-
-    .nav{
-      position:fixed;top:14px;left:50%;transform:translateX(-50%);z-index:50;
-      width:min(1240px,calc(100% - 28px));height:66px;border-radius:999px;
-      display:grid;grid-template-columns:1fr auto 1fr;align-items:center;padding:0 16px 0 22px;
-    }
-    .brand{display:flex;align-items:center;gap:10px;font-size:15px;font-weight:700;color:var(--ink)}
-    .brand-flower{position:relative;width:30px;height:30px;display:grid;place-items:center}
-    .brand-flower i{position:absolute;width:13px;height:18px;background:var(--pink);border-radius:50% 50% 44% 44%;transform-origin:50% 92%}
-    .brand-flower i:nth-child(1){transform:rotate(0deg) translateY(-6px)}
-    .brand-flower i:nth-child(2){transform:rotate(72deg) translateY(-6px);background:var(--peach)}
-    .brand-flower i:nth-child(3){transform:rotate(144deg) translateY(-6px);background:var(--yellow)}
-    .brand-flower i:nth-child(4){transform:rotate(216deg) translateY(-6px);background:var(--aqua)}
-    .brand-flower i:nth-child(5){transform:rotate(288deg) translateY(-6px);background:var(--lilac)}
-    .brand-flower::after{content:"";width:7px;height:7px;border-radius:50%;background:#fff;position:relative;z-index:2}
-    .navlinks{display:flex;align-items:center;gap:14px;font-size:13px;color:var(--ink-soft)}
-    .navlinks a{transition:.2s}.navlinks a:hover{color:var(--pink)}
-    .nav-dot{color:var(--rose)}
-    .nav-right{justify-self:end;display:flex;align-items:center;gap:8px}
-    .nav-pill{height:42px;border-radius:999px;padding:0 18px;display:flex;align-items:center;justify-content:center;border:0;cursor:pointer;font-weight:600;color:var(--ink);background:#fff;box-shadow:0 8px 22px rgba(119,93,132,.10)}
-    .nav-pill.primary{background:linear-gradient(135deg,var(--pink),var(--peach));color:#fff}
-
-    .hero{min-height:100svh;position:relative;display:grid;place-items:center;overflow:hidden;padding:120px 0 60px}
-    .hero-bg{position:absolute;inset:0;pointer-events:none;background:
-      radial-gradient(circle at 12% 20%,rgba(255,183,207,.82),transparent 25%),
-      radial-gradient(circle at 87% 18%,rgba(131,223,241,.66),transparent 24%),
-      radial-gradient(circle at 74% 75%,rgba(201,181,255,.62),transparent 25%),
-      radial-gradient(circle at 24% 78%,rgba(255,217,92,.52),transparent 23%),
-      linear-gradient(180deg,#fffdfa 0%,#fff8fb 48%,#fffef8 100%)}
-    .hero-noise{position:absolute;inset:0;opacity:.18;pointer-events:none;background-image:radial-gradient(rgba(76,106,91,.18) .7px,transparent .7px);background-size:8px 8px}
-    .float-orb{position:absolute;border-radius:50%;filter:blur(2px);opacity:.72;animation:float 8s ease-in-out infinite}
-    .orb1{width:190px;height:190px;background:linear-gradient(145deg,var(--rose),rgba(255,255,255,.7));left:-45px;top:24%;animation-delay:-1s}
-    .orb2{width:130px;height:130px;background:linear-gradient(145deg,var(--aqua),rgba(255,255,255,.78));right:6%;top:16%;animation-delay:-3s}
-    .orb3{width:110px;height:110px;background:linear-gradient(145deg,var(--yellow),rgba(255,255,255,.75));left:16%;bottom:9%;animation-delay:-5s}
-    @keyframes float{0%,100%{transform:translateY(0) rotate(0)}50%{transform:translateY(-22px) rotate(8deg)}}
-
-    .hero-grid{position:relative;z-index:4;display:grid;grid-template-columns:1.04fr .96fr;gap:42px;align-items:center}
-    .hero-copy{padding:30px 0}
-    .eyebrow{display:inline-flex;align-items:center;gap:9px;padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.72);color:var(--ink-soft);font-size:12px;font-weight:600;box-shadow:0 10px 30px rgba(115,92,132,.08)}
-    .eyebrow b{width:9px;height:9px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--yellow));box-shadow:0 0 0 5px rgba(255,126,168,.12)}
-    .hero h1{font-size:clamp(62px,8.2vw,122px);line-height:.84;letter-spacing:-.065em;font-weight:600;margin:24px 0 22px;color:var(--ink)}
-    .hero h1 .serif{color:var(--pink)}
-    .triple{position:relative;display:inline-block;isolation:isolate}
-    .triple::before,.triple::after{content:attr(data-text);position:absolute;inset:0;pointer-events:none;z-index:-1;transition:transform .15s ease-out}
-    .triple::before{color:var(--aqua);opacity:.72;transform:translate(calc(-5px + var(--mx)*-.18),calc(4px + var(--my)*-.12));clip-path:inset(0 0 55% 0)}
-    .triple::after{color:var(--lilac);opacity:.76;transform:translate(calc(6px + var(--mx)*.18),calc(-4px + var(--my)*.12));clip-path:inset(52% 0 0 0)}
-    .hero-lead{font-size:17px;line-height:1.7;color:var(--ink-soft);max-width:610px;margin:0 0 28px}
-    .hero-actions{display:flex;gap:12px;flex-wrap:wrap}
-    .btn{height:52px;border-radius:999px;padding:0 24px;border:0;display:inline-flex;align-items:center;justify-content:center;gap:10px;font-weight:700;cursor:pointer;transition:.24s;color:var(--ink)}
-    .btn:hover{transform:translateY(-3px)}
-    .btn-primary{background:linear-gradient(135deg,var(--pink),var(--peach));color:#fff;box-shadow:0 18px 34px rgba(255,126,168,.28)}
-    .btn-secondary{background:rgba(255,255,255,.8);border:1px solid rgba(80,108,96,.11);box-shadow:0 12px 30px rgba(113,91,137,.09)}
-
-    .hero-art{position:relative;min-height:630px;display:grid;place-items:center}
-    .photo-main{position:absolute;width:min(440px,80%);height:570px;border-radius:220px 220px 42px 42px;overflow:hidden;box-shadow:var(--shadow);transform:rotate(3deg);z-index:4;border:9px solid rgba(255,255,255,.78)}
-    .photo-main img{filter:saturate(1.16) brightness(1.04)}
-    .photo-ghost{position:absolute;width:min(350px,68%);height:475px;border-radius:180px 180px 36px 36px;overflow:hidden;border:7px solid rgba(255,255,255,.74);box-shadow:var(--shadow)}
-    .ghost-left{left:1%;top:13%;transform:rotate(-10deg) translate(calc(var(--mx)*-.1),calc(var(--my)*-.08));z-index:2}
-    .ghost-right{right:0;bottom:4%;transform:rotate(10deg) translate(calc(var(--mx)*.1),calc(var(--my)*.08));z-index:1}
-    .ghost-left::after,.ghost-right::after{content:"";position:absolute;inset:0;mix-blend-mode:screen;opacity:.32}
-    .ghost-left::after{background:var(--aqua)}.ghost-right::after{background:var(--rose)}
-    .flower-badge{position:absolute;right:3%;top:6%;z-index:6;width:130px;height:130px;border-radius:50%;display:grid;place-items:center;text-align:center;padding:16px;font-family:var(--serif);font-style:italic;font-size:22px;color:var(--ink);transform:rotate(8deg)}
-    .spark{position:absolute;z-index:8;font-size:28px;color:var(--yellow);filter:drop-shadow(0 7px 16px rgba(255,203,64,.3));animation:twinkle 2.4s ease-in-out infinite}
-    .s1{left:2%;bottom:20%}.s2{right:13%;bottom:14%;color:var(--pink);animation-delay:-.8s}.s3{left:15%;top:4%;color:var(--violet);animation-delay:-1.4s}
-    @keyframes twinkle{0%,100%{transform:scale(.8) rotate(0);opacity:.65}50%{transform:scale(1.25) rotate(18deg);opacity:1}}
-
-    .marquee{overflow:hidden;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.74);padding:17px 0}
-    .marquee-track{display:flex;gap:34px;white-space:nowrap;width:max-content;animation:marquee 24s linear infinite;font-size:13px;font-weight:600;color:var(--ink-soft);letter-spacing:.04em}
-    .marquee-track span::before{content:"✦";margin-right:34px;color:var(--pink)}
-    @keyframes marquee{to{transform:translateX(-50%)}}
-
-    section.content{padding:125px 0}
-    .section-head{display:grid;grid-template-columns:.6fr 1.4fr;gap:40px;align-items:start;margin-bottom:62px}
-    .label{font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft);font-weight:700;padding-top:12px}
-    .section-head h2{font-size:clamp(46px,6.8vw,88px);line-height:.94;letter-spacing:-.055em;margin:0;color:var(--ink);font-weight:600}
-    .section-head h2 .serif{color:var(--violet)}
-    .section-head p{grid-column:2;max-width:690px;color:var(--ink-soft);line-height:1.75;font-size:16px;margin:4px 0 0}
-
-    .value-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .value-card{min-height:440px;border-radius:34px;padding:28px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;position:relative;box-shadow:var(--shadow);transition:.35s}
-    .value-card:hover{transform:translateY(-7px) rotate(-.4deg)}
-    .value-card:nth-child(1){background:linear-gradient(145deg,#fff0f5,#ffd7e4)}
-    .value-card:nth-child(2){background:linear-gradient(145deg,#ebfbff,#c9f4fb)}
-    .value-card:nth-child(3){background:linear-gradient(145deg,#fff9dc,#ffed9f)}
-    .card-top{display:flex;justify-content:space-between;align-items:center;font-size:12px;font-weight:700;color:var(--ink-soft)}
-    .mini-orb{width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,.78);display:grid;place-items:center;font-size:18px}
-    .value-card .big-word{font-family:var(--serif);font-style:italic;font-size:72px;line-height:.9;margin:0;color:var(--ink)}
-    .value-card p{font-size:14px;line-height:1.7;color:var(--ink-soft);max-width:290px;margin:16px 0 0}
-    .card-flower{position:absolute;right:-25px;top:85px;width:165px;height:165px;border-radius:50%;border:18px solid rgba(255,255,255,.4);box-shadow:inset 0 0 0 18px rgba(255,255,255,.22);opacity:.9}
-
-    .story{background:linear-gradient(180deg,#ffffff 0%,#fffaf4 100%)}
-    .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px;align-items:stretch}
-    .story-photo{min-height:650px;border-radius:42px;overflow:hidden;position:relative;box-shadow:var(--shadow)}
-    .story-photo img{filter:saturate(1.1)}
-    .story-caption{position:absolute;left:24px;bottom:24px;right:24px;padding:18px 20px;border-radius:22px;color:var(--ink)}
-    .story-copy{border-radius:42px;padding:54px;background:linear-gradient(145deg,#f2ecff,#fff4fa);display:flex;flex-direction:column;justify-content:space-between;box-shadow:var(--shadow)}
-    .story-copy blockquote{font-family:var(--serif);font-style:italic;font-size:clamp(46px,5.2vw,72px);line-height:.96;letter-spacing:-.035em;margin:0;color:var(--ink)}
-    .story-copy p{color:var(--ink-soft);font-size:15px;line-height:1.75;max-width:500px}
-    .chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:28px}
-    .chip{padding:9px 13px;border-radius:999px;background:rgba(255,255,255,.72);font-size:12px;font-weight:700;color:var(--ink-soft)}
-
-    .styles{background:linear-gradient(180deg,#fffaf4,#ffffff)}
-    .style-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px}
-    .style-card{border-radius:34px;overflow:hidden;background:#fff;box-shadow:var(--shadow);transition:.35s}
-    .style-card:hover{transform:translateY(-8px)}
-    .style-img{height:420px;overflow:hidden;position:relative}
-    .style-img img{transition:.6s;filter:saturate(1.14)}
-    .style-card:hover img{transform:scale(1.04)}
-    .style-tint{position:absolute;inset:0;mix-blend-mode:screen;opacity:.18;pointer-events:none}
-    .style-card:nth-child(1) .style-tint{background:var(--rose)}
-    .style-card:nth-child(2) .style-tint{background:var(--yellow)}
-    .style-card:nth-child(3) .style-tint{background:var(--lilac)}
-    .style-body{padding:24px}
-    .style-meta{font-size:11px;letter-spacing:.15em;text-transform:uppercase;color:var(--ink-soft);font-weight:700}
-    .style-body h3{font-family:var(--serif);font-style:italic;font-size:40px;margin:7px 0 10px;color:var(--ink)}
-    .style-body p{margin:0;color:var(--ink-soft);font-size:14px;line-height:1.7}
-
-    .proof-wrap{display:grid;grid-template-columns:.75fr 1.25fr;gap:50px;align-items:start}
-    .proof-title{position:sticky;top:110px}
-    .proof-title h2{font-size:clamp(54px,7vw,94px);line-height:.88;letter-spacing:-.055em;margin:0;color:var(--ink)}
-    .proof-title .serif{color:var(--pink)}
-    .proof-title p{color:var(--ink-soft);line-height:1.7;max-width:380px;margin-top:24px}
-    .quotes{display:grid;gap:16px}
-    .quote-card{padding:30px;border-radius:28px;background:#fff;border:1px solid var(--line);box-shadow:0 16px 44px rgba(111,88,132,.08)}
-    .quote-stars{color:#ffad3d;letter-spacing:.16em;font-size:14px;margin-bottom:14px}
-    .quote-card q{display:block;font-family:var(--serif);font-style:italic;font-size:34px;line-height:1.22;color:var(--ink)}
-    .quote-card small{display:block;margin-top:14px;color:var(--ink-soft);font-size:12px}
-
-    .cta-section{padding:110px 0 130px;position:relative;overflow:hidden}
-    .cta-card{position:relative;border-radius:46px;padding:80px 36px;text-align:center;overflow:hidden;background:linear-gradient(135deg,#ffe4ee 0%,#e9f8ff 34%,#f1eaff 66%,#fff0bb 100%);box-shadow:var(--shadow)}
-    .cta-card::before,.cta-card::after{content:"";position:absolute;border-radius:50%;filter:blur(1px);opacity:.72}
-    .cta-card::before{width:270px;height:270px;left:-90px;top:-70px;background:rgba(255,126,168,.34)}
-    .cta-card::after{width:320px;height:320px;right:-100px;bottom:-130px;background:rgba(131,223,241,.38)}
-    .cta-content{position:relative;z-index:2;width:min(820px,100%);margin:auto}
-    .cta-card h2{font-size:clamp(58px,7.8vw,105px);line-height:.9;letter-spacing:-.06em;margin:0;color:var(--ink);font-weight:600}
-    .cta-card h2 .serif{color:var(--pink)}
-    .cta-card p{font-size:16px;line-height:1.72;color:var(--ink-soft);max-width:600px;margin:24px auto 26px}
-    .order-form{display:none;width:min(720px,100%);margin:34px auto 0;text-align:left;grid-template-columns:1fr 1fr;gap:12px;padding:18px;border-radius:28px;background:rgba(255,255,255,.64);backdrop-filter:blur(12px)}
-    .order-form.open{display:grid}
-    .field{display:flex;flex-direction:column;gap:7px}.field.full{grid-column:1/-1}
-    .field label{font-size:11px;font-weight:700;color:var(--ink-soft)}
-    .field input,.field textarea,.field select{width:100%;border:1px solid rgba(67,100,85,.12);background:rgba(255,255,255,.85);color:var(--ink);padding:13px 14px;border-radius:14px;outline:0}
-    .field input:focus,.field textarea:focus,.field select:focus{border-color:var(--pink);box-shadow:0 0 0 4px rgba(255,126,168,.12)}
-    .field textarea{min-height:90px;resize:vertical}
-    .submit{grid-column:1/-1;border:0;background:linear-gradient(135deg,var(--pink),var(--peach));color:#fff;padding:15px;border-radius:14px;font-weight:800;cursor:pointer}
-
-    .contact{padding:100px 0;background:#fff}
-    .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:24px}
-    .contact-card,.map-card{min-height:430px;border-radius:36px;padding:38px;box-shadow:var(--shadow);position:relative;overflow:hidden}
-    .contact-card{background:linear-gradient(145deg,#eefcf5,#dcf7ea)}
-    .contact-card h3{font-size:clamp(46px,5vw,70px);line-height:.94;letter-spacing:-.05em;margin:0 0 28px;color:var(--ink)}
-    .contact-card p{color:var(--ink-soft);line-height:1.8}
-    .map-card{background:linear-gradient(145deg,#fff5db,#fff0bc);display:flex;flex-direction:column;justify-content:space-between}
-    .map-graphic{height:250px;border-radius:26px;background:
-      linear-gradient(22deg,transparent 48%,rgba(70,116,96,.18) 49%,rgba(70,116,96,.18) 51%,transparent 52%),
-      linear-gradient(145deg,transparent 47%,rgba(255,126,168,.16) 48%,rgba(255,126,168,.16) 51%,transparent 52%),
-      radial-gradient(circle at 66% 48%,var(--pink) 0 9px,#fff 10px 14px,transparent 15px),
-      #fffdf4;
-      border:1px solid rgba(72,103,88,.10);position:relative;overflow:hidden}
-    .map-graphic::after{content:"Hoa Kiều Linh";position:absolute;left:54%;top:54%;padding:8px 10px;border-radius:999px;background:#fff;color:var(--ink);font-size:11px;font-weight:800;box-shadow:0 8px 18px rgba(110,87,120,.12)}
-    .map-card a{display:inline-flex;align-items:center;gap:8px;font-weight:700;color:var(--ink);margin-top:18px}
-
-    footer{padding:30px clamp(24px,6vw,100px);display:flex;justify-content:space-between;gap:20px;flex-wrap:wrap;border-top:1px solid var(--line);background:#fff;color:var(--ink-soft);font-size:12px}
-
-    .fade{opacity:0;transform:translateY(20px);transition:opacity .68s ease,transform .68s ease}
-    .fade.in{opacity:1;transform:none}
-    .toast{position:fixed;z-index:100;left:50%;bottom:26px;transform:translate(-50%,18px);background:#fff;color:var(--ink);padding:12px 17px;border-radius:999px;font-size:13px;font-weight:700;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s}
-    .toast.show{opacity:1;transform:translate(-50%,0)}
-
-    @media(max-width:960px){
-      .nav{grid-template-columns:1fr auto}.navlinks{display:none}
-      .hero-grid,.story-grid,.proof-wrap,.contact-grid{grid-template-columns:1fr}
-      .hero-copy{text-align:center}.hero-lead{margin-left:auto;margin-right:auto}.hero-actions{justify-content:center}
-      .hero-art{min-height:600px;margin-top:10px}.section-head{grid-template-columns:1fr}.section-head p{grid-column:1}
-      .value-grid,.style-grid{grid-template-columns:1fr 1fr}.proof-title{position:static}.proof-title p{max-width:620px}
-    }
-    @media(max-width:640px){
-      .container{width:calc(100% - 28px)}.nav{height:58px;top:10px;padding:0 10px 0 14px}.nav-right .nav-pill:not(.primary){display:none}.nav-pill{height:38px;padding:0 14px;font-size:12px}
-      .hero{padding-top:95px}.hero h1{font-size:64px}.hero-art{min-height:500px}.photo-main{width:72%;height:440px}.photo-ghost{height:365px}.flower-badge{width:104px;height:104px;font-size:18px}
-      section.content{padding:88px 0}.section-head{margin-bottom:42px}.value-grid,.style-grid{grid-template-columns:1fr}.value-card{min-height:360px}.style-img{height:390px}
-      .story-photo{min-height:500px}.story-copy{padding:30px}.story-copy blockquote{font-size:48px}.quote-card q{font-size:29px}
-      .cta-card{padding:64px 18px;border-radius:34px}.order-form{grid-template-columns:1fr}.field.full,.submit{grid-column:auto}.contact{padding:80px 0}.contact-card,.map-card{padding:28px}
-    }
-  </style>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<meta name="theme-color" content="#f9fbff" />
+<title>Hoa Kiều Linh — Lily only, made bright</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<style>
+:root{--text:#2b4b45;--muted:#66857d;--pink:#ff7db6;--aqua:#7edfe9;--peach:#ffb990;--lav:#c5a8ff;--shadow:0 20px 50px rgba(170,185,205,.18);--serif:"Instrument Serif",Georgia,serif;--sans:"Inter",system-ui,sans-serif;--mx:0px;--my:0px}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;font-family:var(--sans);color:var(--text);overflow-x:hidden;background:radial-gradient(circle at 20% 10%,#fff 0 18%,transparent 36%),radial-gradient(circle at 84% 8%,rgba(126,223,233,.24),transparent 18%),linear-gradient(180deg,#fbfdff 0%,#fff8fb 100%)}a{text-decoration:none;color:inherit}img{max-width:100%;display:block}button,input,textarea,select{font:inherit}
+.container{width:min(1180px,calc(100% - 28px));margin:auto}.serif{font-family:var(--serif);font-style:italic;font-weight:400}.glass{background:rgba(255,255,255,.42);backdrop-filter:blur(12px);-webkit-backdrop-filter:blur(12px);border:1px solid rgba(255,255,255,.84);box-shadow:var(--shadow),inset 0 1px 0 rgba(255,255,255,.72)}.fade{opacity:0;transform:translateY(24px);transition:.7s ease}.fade.in{opacity:1;transform:none}
+.nav{position:fixed;top:14px;left:14px;right:14px;z-index:50}.nav .wrap{display:flex;justify-content:space-between;align-items:center;padding:12px 14px;border-radius:999px}.brand{display:flex;align-items:center;gap:10px;font-weight:800;letter-spacing:-.03em}.mark{width:34px;height:34px;border-radius:50%;display:grid;place-items:center;position:relative;background:linear-gradient(145deg,#fff,#eef9fb)}.mark:before,.mark:after{content:"";position:absolute;border-radius:50%;border:1.5px solid rgba(45,92,83,.45)}.mark:before{inset:6px}.mark:after{inset:12px}.links{display:flex;gap:16px;color:#67827b;font-size:14px}.links a:hover{color:var(--pink)}
+.hero{min-height:100svh;position:relative;overflow:hidden;padding-top:100px}.sky,.hill,.lake,.meadow,.cloud{position:absolute}.sky{inset:0;background:radial-gradient(circle at 76% 14%,rgba(164,229,245,.62) 0 10%,transparent 20%),radial-gradient(circle at 28% 20%,rgba(255,255,255,.96) 0 10%,transparent 20%),radial-gradient(circle at 56% 14%,rgba(255,255,255,.96) 0 10%,transparent 20%),linear-gradient(180deg,#e7f9ff 0%,#eefbff 38%,#fff8fb 100%);z-index:-5}.cloud{border-radius:50%;background:rgba(255,255,255,.92);filter:blur(8px);box-shadow:0 0 50px rgba(255,255,255,.45)}.c1{width:320px;height:120px;top:15%;left:8%}.c2{width:420px;height:140px;top:12%;right:8%}.hill{bottom:14%;border-radius:50%;background:linear-gradient(180deg,#b7dc91,#99c47c);box-shadow:inset 0 16px 24px rgba(255,255,255,.3);z-index:-3}.h1{left:-10%;width:54%;height:28%}.h2{right:-8%;width:52%;height:24%}.h3{left:25%;width:55%;height:18%;bottom:11%;background:linear-gradient(180deg,#a5d187,#89b86a)}.lake{left:18%;right:18%;bottom:14%;height:20%;border-radius:50%;background:radial-gradient(circle at 50% 30%,rgba(255,255,255,.84),rgba(173,232,241,.72) 45%,rgba(178,206,238,.4) 72%,rgba(255,255,255,.15) 100%);z-index:-2}.meadow{left:-5%;right:-5%;bottom:-2%;height:32%;background:radial-gradient(circle at 8% 74%,#ffc8df 0 9px,transparent 10px),radial-gradient(circle at 12% 79%,#fff 0 12px,transparent 13px),radial-gradient(circle at 24% 74%,#ffd9e9 0 11px,transparent 12px),radial-gradient(circle at 31% 81%,#fff 0 12px,transparent 13px),radial-gradient(circle at 43% 80%,#fff 0 12px,transparent 13px),radial-gradient(circle at 57% 82%,#fff 0 13px,transparent 14px),radial-gradient(circle at 74% 74%,#fff 0 12px,transparent 13px),radial-gradient(circle at 82% 81%,#ffd4e6 0 10px,transparent 11px),linear-gradient(180deg,rgba(161,207,128,.02),rgba(136,191,99,.88) 42%,rgba(120,173,77,1) 100%);z-index:-1}
+.hero-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:end;min-height:calc(100svh - 110px)}.copy{padding:20px 0 90px;position:relative;z-index:2}.badge{display:inline-flex;gap:10px;align-items:center;border-radius:999px;padding:10px 14px;color:#6b887f;font-size:13px}.badge span{width:8px;height:8px;border-radius:50%;background:linear-gradient(135deg,var(--pink),var(--aqua));box-shadow:0 0 0 6px rgba(255,255,255,.35)}h1{margin:18px 0 16px;font-size:clamp(58px,8vw,112px);line-height:.9;letter-spacing:-.06em;color:#fff;text-shadow:0 8px 30px rgba(116,180,187,.16)}.triple{position:relative;display:inline-block;isolation:isolate}.triple:before,.triple:after{content:attr(data-text);position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:.5;transition:transform .14s ease}.triple:before{color:var(--pink);transform:translate(calc(-4px + var(--mx)*-.15),calc(2px + var(--my)*-.12))}.triple:after{color:var(--aqua);transform:translate(calc(4px + var(--mx)*.15),calc(-1px + var(--my)*.12))}.sub{max-width:620px;font-size:18px;line-height:1.75;color:var(--muted);margin:0 0 28px}.actions{display:flex;gap:12px;flex-wrap:wrap}.btn{padding:15px 24px;border-radius:999px;font-weight:700;border:0;cursor:pointer;display:inline-flex;align-items:center;gap:10px}.primary{color:#fff;background:linear-gradient(90deg,var(--pink),var(--peach));box-shadow:0 14px 28px rgba(255,125,173,.25)}.secondary{color:#47635d}.stats{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}.pill{padding:14px 18px;border-radius:22px}.pill b{display:block;font-size:21px}.pill span{font-size:13px;color:#708b84}
+.visual{position:relative;height:min(760px,74vh)}.glow{position:absolute;inset:8% 4% 11% 12%;background:radial-gradient(circle at 56% 38%,rgba(255,255,255,.92),rgba(255,255,255,.16) 26%,transparent 60%);filter:blur(26px)}.lily{position:absolute;right:-2%;bottom:0;width:min(690px,100%);filter:saturate(1.08) brightness(1.04) drop-shadow(0 28px 60px rgba(144,183,201,.22));border-radius:40px;-webkit-mask-image:radial-gradient(circle at 58% 52%,black 48%,transparent 84%);mask-image:radial-gradient(circle at 58% 52%,black 48%,transparent 84%)}.note{position:absolute;top:6%;right:2%;width:180px;height:180px;border-radius:999px;display:grid;place-items:center;text-align:center;font:400 26px/1.05 var(--serif);color:#466861}.star{position:absolute;font-size:34px;line-height:1}.s1{top:8%;left:14%;color:var(--lav)}.s2{bottom:14%;left:6%;color:#ffd86c}.s3{bottom:24%;right:8%;color:var(--pink)}
+.section{padding:110px 0}.title{text-align:center;max-width:820px;margin:0 auto 50px}.kicker{display:inline-block;padding:8px 14px;border-radius:999px;font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#6d877f}.title h2{margin:18px 0 0;font-size:clamp(42px,5vw,72px);line-height:1;letter-spacing:-.05em}.title p{max-width:700px;margin:18px auto 0;color:var(--muted);font-size:17px;line-height:1.75}.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}.card{border-radius:30px;padding:28px;min-height:250px;background:linear-gradient(180deg,#fff,#f7fcff)}.card h3{font:400 38px/1 var(--serif);margin:30px 0 10px}.card p{margin:0;color:var(--muted);line-height:1.72}
+.world{border-radius:40px;padding:22px;overflow:hidden;position:relative}.worldbg{position:absolute;inset:0;background:radial-gradient(circle at 76% 12%,rgba(160,228,245,.7),transparent 15%),linear-gradient(180deg,#daf4fd 0%,#edfaff 42%,#ffdbea 100%)}.worldgrid{position:relative;z-index:1;display:grid;grid-template-columns:.95fr 1.05fr;gap:20px;align-items:center}.worldcopy{padding:20px}.worldcopy h2{margin:0;font-size:clamp(42px,5vw,66px);line-height:.98;letter-spacing:-.05em}.worldcopy p{font-size:17px;line-height:1.75;color:var(--muted);margin:16px 0 22px}.list{display:grid;gap:12px}.item{display:flex;gap:14px;padding:14px 16px;border-radius:22px;background:rgba(255,255,255,.56)}.dot{width:12px;height:12px;border-radius:50%;margin-top:8px;flex:none}.item:nth-child(1) .dot{background:var(--aqua)}.item:nth-child(2) .dot{background:#ffb7ca}.item:nth-child(3) .dot{background:#c2a9ff}.item b{display:block;font-size:18px;margin-bottom:4px}.item span{font-size:14px;color:var(--muted);line-height:1.65}.mini{position:relative;height:560px;border-radius:34px;overflow:hidden;background:radial-gradient(circle at 76% 12%,rgba(160,228,245,.7),transparent 15%),linear-gradient(180deg,#daf4fd 0%,#edfaff 42%,#ffdbea 100%);box-shadow:var(--shadow)}.mini .mh{position:absolute;bottom:23%;width:52%;height:25%;border-radius:50%;background:linear-gradient(180deg,#b6dd92,#9ac776)}.mini .mh1{left:-10%}.mini .mh2{right:-8%;height:21%;width:48%}.mini .mh3{left:25%;width:55%;height:17%;bottom:19%;background:linear-gradient(180deg,#a8d489,#87b86b)}.mini .ml{position:absolute;left:24%;right:24%;bottom:24%;height:14%;border-radius:50%;background:radial-gradient(circle at 50% 35%,rgba(255,255,255,.86),rgba(175,230,241,.7) 52%,rgba(255,255,255,.15) 100%)}.mini .mm{position:absolute;left:0;right:0;bottom:0;height:36%;background:radial-gradient(circle at 7% 72%,#ffc9e0 0 8px,transparent 9px),radial-gradient(circle at 12% 81%,#fff 0 11px,transparent 12px),radial-gradient(circle at 34% 72%,#fff 0 10px,transparent 11px),radial-gradient(circle at 52% 74%,#fff 0 10px,transparent 11px),radial-gradient(circle at 71% 72%,#fff 0 11px,transparent 12px),radial-gradient(circle at 88% 74%,#fff 0 11px,transparent 12px),linear-gradient(180deg,rgba(174,211,132,.08),rgba(134,187,91,.9) 44%,rgba(118,173,77,1) 100%)}.mini img{position:absolute;right:-3%;bottom:7%;width:74%;filter:drop-shadow(0 20px 48px rgba(141,180,198,.26));-webkit-mask-image:radial-gradient(circle at 52% 50%,black 50%,transparent 86%);mask-image:radial-gradient(circle at 52% 50%,black 50%,transparent 86%)}
+.order{border-radius:40px;padding:24px;background:linear-gradient(180deg,#eefaff 0%,#fff6fb 100%)}.ordergrid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:center}.order h2{font-size:clamp(44px,5vw,70px);line-height:.98;letter-spacing:-.05em;margin:0 0 14px}.order p{color:var(--muted);line-height:1.8}.chips{display:flex;gap:10px;flex-wrap:wrap}.chip{padding:10px 14px;border-radius:999px;font-size:13px}.form{display:grid;grid-template-columns:1fr 1fr;gap:12px;padding:16px;border-radius:28px}.field{display:flex;flex-direction:column;gap:6px}.field.full{grid-column:1/-1}.field label{font-size:12px;color:#6b857e}.field input,.field select,.field textarea{width:100%;padding:14px 16px;border-radius:18px;border:1px solid rgba(255,255,255,.86);background:rgba(255,255,255,.8);color:#365850;outline:0}.field textarea{min-height:96px;resize:vertical}.submit{grid-column:1/-1;padding:16px 18px;border-radius:18px;border:0;font-weight:800;color:#fff;background:linear-gradient(90deg,var(--pink),var(--peach));cursor:pointer}.contact{margin-top:24px;padding:24px;border-radius:30px;display:flex;justify-content:space-between;gap:20px;align-items:center}.contact h3{margin:0 0 10px;font-size:30px;letter-spacing:-.04em}.contact p{margin:0;color:var(--muted);line-height:1.75}.map{padding:16px 24px;border-radius:999px;font-weight:700;white-space:nowrap}
+footer{padding:28px 16px 40px;text-align:center;color:#7a948d;font-size:13px}.toast{position:fixed;left:50%;bottom:28px;transform:translate(-50%,18px);background:#fff;color:#35574f;padding:12px 18px;border-radius:999px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.25s}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:960px){.links{display:none}.hero-grid,.worldgrid,.ordergrid,.cards{grid-template-columns:1fr}.visual{height:450px}.mini{height:420px}.contact{flex-direction:column;align-items:flex-start}}
+@media(max-width:640px){.visual{height:380px}.note{width:124px;height:124px;font-size:18px}.actions,.stats{display:grid;grid-template-columns:1fr}.form{grid-template-columns:1fr}.field.full,.submit{grid-column:auto}}
+</style>
 </head>
 <body>
-  <nav class="nav glass">
-    <a class="brand" href="#home"><span class="brand-flower"><i></i><i></i><i></i><i></i><i></i></span><span>Hoa Kiều Linh</span></a>
-    <div class="navlinks"><a href="#home">Trang chủ</a><span class="nav-dot">•</span><a href="#values">Triết lý</a><span class="nav-dot">•</span><a href="#styles">Hoa Ly</a><span class="nav-dot">•</span><a href="#contact">Liên hệ</a></div>
-    <div class="nav-right"><a class="nav-pill" href="#contact">Tây Mỗ, Hà Nội</a><a class="nav-pill primary" href="#order">Đặt hoa</a></div>
-  </nav>
-
-  <main>
-    <section class="hero" id="home">
-      <div class="hero-bg"></div><div class="hero-noise"></div><span class="float-orb orb1"></span><span class="float-orb orb2"></span><span class="float-orb orb3"></span>
-      <div class="container hero-grid">
-        <div class="hero-copy">
-          <div class="eyebrow fade"><b></b> Chỉ chuyên Hoa Ly · Vinhomes Smart City</div>
-          <h1 class="fade">Một loài hoa.<br><span class="triple serif" data-text="Vô hạn cảm xúc.">Vô hạn cảm xúc.</span></h1>
-          <p class="hero-lead fade">Hoa Kiều Linh chọn một hướng rất rõ: <strong>chỉ làm Hoa Ly</strong>. Tươi, chắc, chỉn chu — và đủ rực rỡ để biến một khoảnh khắc bình thường thành điều đáng nhớ.</p>
-          <div class="hero-actions fade"><a class="btn btn-primary" href="#order">Đặt bó Ly của bạn <span>↗</span></a><a class="btn btn-secondary" href="#styles">Xem phong cách bó <span>→</span></a></div>
-        </div>
-        <div class="hero-art fade">
-          <div class="photo-ghost ghost-left"><img src="https://images.unsplash.com/photo-1749221479542-83fee706727d?auto=format&fit=crop&fm=jpg&q=84&w=1200" alt="Hoa Ly sáng màu"></div>
-          <div class="photo-ghost ghost-right"><img src="https://images.unsplash.com/photo-1770731959681-3ef897ba96f2?auto=format&fit=crop&fm=jpg&q=84&w=1200" alt="Hoa Ly phong cách editorial"></div>
-          <div class="photo-main"><img src="https://images.unsplash.com/photo-1749221479901-8c901e5150aa?auto=format&fit=crop&fm=jpg&q=88&w=1600" alt="Bó Hoa Ly cao cấp"></div>
-          <div class="flower-badge glass">Lily only<br>made bright</div><span class="spark s1">✦</span><span class="spark s2">✦</span><span class="spark s3">✦</span>
-        </div>
-      </div>
-    </section>
-
-    <div class="marquee"><div class="marquee-track"><span>Chỉ Hoa Ly</span><span>Hoa tươi chọn kỹ</span><span>Bó tại chỗ</span><span>Women-owned</span><span>LGBTQ+ friendly</span><span>Vinhomes Smart City</span><span>Chỉ Hoa Ly</span><span>Hoa tươi chọn kỹ</span><span>Bó tại chỗ</span><span>Women-owned</span><span>LGBTQ+ friendly</span><span>Vinhomes Smart City</span></div></div>
-
-    <section class="content" id="values">
-      <div class="container">
-        <div class="section-head fade"><div class="label">The lily standard</div><h2>Một tiệm hoa không cần bán <span class="serif">mọi thứ.</span></h2><p>Chúng tôi tập trung vào đúng một loài hoa để mọi chi tiết đều được làm kỹ hơn: từ độ tươi, dáng cành, nụ, cánh cho tới tỷ lệ giấy gói và cách trao.</p></div>
-        <div class="value-grid">
-          <article class="value-card fade"><div class="card-flower"></div><div class="card-top"><span>01 / FRESH</span><span class="mini-orb">✦</span></div><div><h3 class="big-word">Tươi.</h3><p>Chọn cành khỏe, nụ đẹp và độ nở phù hợp để bó hoa giữ được vẻ rạng rỡ khi đến tay người nhận.</p></div></article>
-          <article class="value-card fade"><div class="card-flower"></div><div class="card-top"><span>02 / FORM</span><span class="mini-orb">◌</span></div><div><h3 class="big-word">Chắc.</h3><p>Kết cấu bó ổn định, cân đối, dễ cầm và không tạo cảm giác làm vội hoặc lỏng tay.</p></div></article>
-          <article class="value-card fade"><div class="card-flower"></div><div class="card-top"><span>03 / FINISH</span><span class="mini-orb">✧</span></div><div><h3 class="big-word">Chỉn chu.</h3><p>Màu giấy, tỷ lệ, đường nét và khoảng thở được tiết chế để chính Hoa Ly là nhân vật nổi bật nhất.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="content story">
-      <div class="container story-grid">
-        <div class="story-photo fade"><img src="https://images.unsplash.com/photo-1542768651-5d7354d0b782?auto=format&fit=crop&fm=jpg&q=88&w=1600" alt="Hoa Ly thanh lịch"><div class="story-caption glass">Một loài hoa. Một tiêu chuẩn. Mỗi bó mang một cảm xúc riêng.</div></div>
-        <div class="story-copy fade"><blockquote>“Không cần bán mọi loại hoa. Chỉ cần làm một loại thật đẹp.”</blockquote><div><p>Hoa Kiều Linh là một boutique florist dành cho những ai thích vẻ đẹp sáng, tươi và có cá tính. Mỗi bó được tư vấn theo dịp tặng, ngân sách và cảm giác bạn muốn người nhận mang theo.</p><div class="chips"><span class="chip">High quality</span><span class="chip">Women-owned</span><span class="chip">LGBTQ+ friendly</span><span class="chip">Hà Nội</span></div></div></div>
-      </div>
-    </section>
-
-    <section class="content styles" id="styles">
-      <div class="container">
-        <div class="section-head fade"><div class="label">One flower, many moods</div><h2>Một loài Ly.<br><span class="serif">Ba khí chất.</span></h2><p>Không thêm loài hoa khác. Chúng tôi thay đổi cảm xúc bằng màu sắc, số lượng, độ nở, tỷ lệ và cách gói.</p></div>
-        <div class="style-grid">
-          <article class="style-card fade"><div class="style-img"><img src="https://images.unsplash.com/photo-1749221479542-83fee706727d?auto=format&fit=crop&fm=jpg&q=86&w=1200" alt="Ly Trắng Pure"><span class="style-tint"></span></div><div class="style-body"><div class="style-meta">01 · Pure</div><h3>Ly Trắng</h3><p>Sáng, tinh khôi, tối giản. Phù hợp với những dịp cần vẻ trang trọng nhưng không nặng nề.</p></div></article>
-          <article class="style-card fade"><div class="style-img"><img src="https://images.unsplash.com/photo-1542768651-5d7354d0b782?auto=format&fit=crop&fm=jpg&q=86&w=1200" alt="Ly Warm"><span class="style-tint"></span></div><div class="style-body"><div class="style-meta">02 · Warm</div><h3>Ly Ấm</h3><p>Ấm áp, gần gũi, trẻ trung — hợp sinh nhật, lời cảm ơn và những dịp muốn tạo cảm giác thân mật.</p></div></article>
-          <article class="style-card fade"><div class="style-img"><img src="https://images.unsplash.com/photo-1770731959681-3ef897ba96f2?auto=format&fit=crop&fm=jpg&q=86&w=1200" alt="Ly Statement"><span class="style-tint"></span></div><div class="style-body"><div class="style-meta">03 · Statement</div><h3>Ly Tuyên Ngôn</h3><p>Nhiều cành hơn, form lớn hơn, rực rỡ hơn — dành cho khoảnh khắc cần một món quà thật có hiện diện.</p></div></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="content">
-      <div class="container proof-wrap">
-        <div class="proof-title fade"><div class="label">What matters most</div><h2>Tươi.<br>Chắc.<br><span class="serif">Chỉn chu.</span></h2><p>Đây là những điểm mạnh được rút ra từ các phản hồi mẫu bạn cung cấp. Khi có review thật của Hoa Kiều Linh, nên thay phần này bằng đánh giá đã xác minh.</p></div>
-        <div class="quotes">
-          <article class="quote-card fade"><div class="quote-stars">★★★★★</div><q>Hoa tươi, bó tại chỗ, nhìn đẹp ngay từ lúc nhận.</q><small>Thông điệp diễn giải từ phản hồi mẫu.</small></article>
-          <article class="quote-card fade"><div class="quote-stars">★★★★★</div><q>Bó hoa chắc tay, chỉn chu, không có cảm giác làm vội hay sơ sài.</q><small>Thông điệp diễn giải từ phản hồi mẫu.</small></article>
-          <article class="quote-card fade"><div class="quote-stars">★★★★★</div><q>Ngay cả người ít để ý đến hoa vẫn có thể có một trải nghiệm thật dễ chịu.</q><small>Thông điệp diễn giải từ phản hồi mẫu.</small></article>
-        </div>
-      </div>
-    </section>
-
-    <section class="cta-section" id="order">
-      <div class="container"><div class="cta-card"><div class="cta-content fade"><div class="eyebrow"><b></b> Order your lilies</div><h2>Một bó Ly.<br><span class="serif">Đủ để nhớ.</span></h2><p>Cho sinh nhật, ngày kỷ niệm, lời cảm ơn — hoặc đơn giản là một ngày bạn muốn ai đó vui hơn khi mở cửa.</p><div class="hero-actions" style="justify-content:center"><button class="btn btn-primary" id="openOrder">Đặt hoa ngay ↗</button><a class="btn btn-secondary" href="#contact">Xem địa chỉ →</a></div><form class="order-form" id="orderForm"><div class="field"><label>Họ và tên</label><input required name="name" placeholder="Tên của bạn"></div><div class="field"><label>Số điện thoại</label><input required name="phone" placeholder="09xx xxx xxx"></div><div class="field"><label>Phong cách</label><select name="style"><option>Ly Trắng — Pure</option><option>Ly Ấm — Warm</option><option>Ly Tuyên Ngôn — Statement</option><option>Tư vấn giúp tôi</option></select></div><div class="field"><label>Ngân sách</label><select name="budget"><option>Dưới 800.000đ</option><option>800.000 – 1.200.000đ</option><option>1.200.000đ trở lên</option><option>Tư vấn giúp tôi</option></select></div><div class="field full"><label>Lời nhắn</label><textarea name="note" placeholder="Dịp tặng, thời gian cần hoa, cảm giác mong muốn..."></textarea></div><button class="submit" type="submit">Gửi yêu cầu đặt Hoa Ly</button></form></div></div></div>
-    </section>
-
-    <section class="contact" id="contact">
-      <div class="container contact-grid">
-        <div class="contact-card fade"><div class="label">Visit / Pickup</div><h3>Ghé Hoa Kiều Linh ở <span class="serif" style="color:var(--pink)">Tây Mỗ.</span></h3><p><strong>Hoa Kiều Linh</strong><br>Tòa GS3, Vinhomes Smart City,<br>Tây Mỗ, Hà Nội.</p><p>Chất lượng cao · thân thiện với cộng đồng LGBTQ+ · do phụ nữ làm chủ.</p></div>
-        <div class="map-card fade"><div class="map-graphic"></div><div><div class="label">Vinhomes Smart City</div><a target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=T%C3%B2a+GS3+Vinhomes+Smart+City+T%C3%A2y+M%E1%BB%97+H%C3%A0+N%E1%BB%99i">Mở Google Maps ↗</a></div></div>
-      </div>
-    </section>
-  </main>
-
-  <footer><span>© 2026 Hoa Kiều Linh. All rights reserved.</span><span>Chỉ Hoa Ly · Vinhomes Smart City · Hà Nội</span></footer>
-  <div class="toast" id="toast">Đã ghi nhận yêu cầu của bạn.</div>
-
-  <script>
-    const io=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('in');io.unobserve(entry.target)}}),{threshold:.12,rootMargin:'0px 0px -60px'});
-    document.querySelectorAll('.fade').forEach(el=>io.observe(el));
-    window.addEventListener('pointermove',e=>{const x=(e.clientX/window.innerWidth-.5)*18;const y=(e.clientY/window.innerHeight-.5)*14;document.documentElement.style.setProperty('--mx',x+'px');document.documentElement.style.setProperty('--my',y+'px')});
-    const openOrder=document.getElementById('openOrder'),orderForm=document.getElementById('orderForm'),toast=document.getElementById('toast');
-    openOrder.addEventListener('click',()=>{orderForm.classList.toggle('open');openOrder.textContent=orderForm.classList.contains('open')?'Đóng biểu mẫu':'Đặt hoa ngay ↗';if(orderForm.classList.contains('open'))setTimeout(()=>orderForm.scrollIntoView({behavior:'smooth',block:'center'}),50)});
-    orderForm.addEventListener('submit',e=>{e.preventDefault();toast.textContent='Đã ghi nhận yêu cầu đặt Hoa Ly.';toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2600);e.target.reset();orderForm.classList.remove('open');openOrder.textContent='Đặt hoa ngay ↗'});
-  </script>
+<nav class="nav"><div class="wrap glass"><a class="brand" href="#home"><span class="mark"></span><span>Hoa Kiều Linh</span></a><div class="links"><a href="#home">Home</a><a href="#about">Why Lily</a><a href="#styles">Styles</a><a href="#order">Đặt hoa</a></div></div></nav>
+<main>
+<section class="hero" id="home"><div class="sky"></div><div class="cloud c1"></div><div class="cloud c2"></div><div class="hill h1"></div><div class="hill h2"></div><div class="hill h3"></div><div class="lake"></div><div class="meadow"></div><div class="container hero-grid"><div class="copy"><div class="badge glass fade"><span></span>Lily only · made bright</div><h1 class="fade">Một vườn Ly.<br><span class="triple serif" data-text="Sáng như mơ.">Sáng như mơ.</span></h1><p class="sub fade">Hoa Kiều Linh đưa Hoa Ly hòa vào cả không gian — nhẹ, sáng, bay bổng và đủ đẹp để người nhìn nhớ ngay từ cái chạm đầu tiên.</p><div class="actions fade"><a class="btn primary" href="#order">Đặt bó Ly của bạn ↗</a><a class="btn secondary glass" href="#styles">Xem phong cách</a></div><div class="stats fade"><div class="pill glass"><b>01</b><span>Chỉ chuyên Hoa Ly</span></div><div class="pill glass"><b>Pure</b><span>Tươi · Chắc · Chỉn chu</span></div><div class="pill glass"><b>GS3</b><span>Vinhomes Smart City</span></div></div></div><div class="visual fade"><div class="glow"></div><span class="star s1">✦</span><span class="star s2">✦</span><span class="star s3">✦</span><div class="note glass">Lily only<br>made<br>bright</div><img class="lily" src="https://images.unsplash.com/photo-1749221479901-8c901e5150aa?auto=format&fit=crop&fm=jpg&q=82&w=1500" alt="Hoa Ly hòa vào bối cảnh mơ màng"></div></div></section>
+<section class="section" id="about"><div class="container"><div class="title fade"><span class="kicker glass">Integrated lily world</span><h2>Không còn là một khung hình rời.<br><span class="serif">Hoa Ly trở thành cả bầu không khí.</span></h2><p>Website dùng bầu trời, đồi cỏ, hồ nước, cánh hoa và lớp ảnh Hoa Ly được blend mềm vào cảnh chung — theo đúng tinh thần dreamy của mẫu bạn thích.</p></div><div class="cards"><article class="card glass fade"><div>01 / Fresh</div><h3>Tươi.</h3><p>Cành khỏe, nụ đẹp, nền trắng sáng và cảm giác trong trẻo là cốt lõi toàn bộ trải nghiệm.</p></article><article class="card glass fade"><div>02 / Integrated</div><h3>Hòa.</h3><p>Hoa không đứng riêng mà hòa vào phong cảnh, ánh sáng và chuyển động của toàn trang.</p></article><article class="card glass fade"><div>03 / Memorable</div><h3>Nhớ.</h3><p>Typography bay bổng, triple effect pastel và bố cục rộng giúp trang có cảm giác đáng nhớ hơn.</p></article></div></div></section>
+<section class="section" id="styles"><div class="container"><div class="world glass fade"><div class="worldbg"></div><div class="worldgrid"><div class="worldcopy"><span class="kicker glass">One flower / many moods</span><h2>Một loài Ly.<br><span class="serif">Ba khí chất.</span></h2><p>Vẫn là Hoa Ly, nhưng thay đổi cảm giác bằng ánh sáng, cách bó và nhịp thị giác của toàn bộ trang.</p><div class="list"><div class="item glass"><span class="dot"></span><div><b>Ly Trắng — Pure</b><span>Tinh khôi, thanh lịch, nhẹ và hợp với những khoảnh khắc cần sự trang trọng.</span></div></div><div class="item glass"><span class="dot"></span><div><b>Ly Ấm — Warm</b><span>Mềm hơn, gần gũi hơn, dành cho quà tặng cần cảm giác dịu dàng và thân mật.</span></div></div><div class="item glass"><span class="dot"></span><div><b>Ly Tuyên Ngôn — Statement</b><span>Nổi bật hơn, hiện diện hơn, dành cho dịp bạn muốn gây ấn tượng ngay.</span></div></div></div></div><div class="mini"><div class="mh mh1"></div><div class="mh mh2"></div><div class="mh mh3"></div><div class="ml"></div><div class="mm"></div><img src="https://images.unsplash.com/photo-1749221479901-8c901e5150aa?auto=format&fit=crop&fm=jpg&q=82&w=1500" alt="Hoa Ly hòa vào phong cảnh pastel"></div></div></div></div></section>
+<section class="section" id="order"><div class="container"><div class="order glass fade"><div class="ordergrid"><div><span class="kicker glass">Order your lilies</span><h2>Đặt một bó Ly<br><span class="serif">dành cho điều đáng nhớ.</span></h2><p>Hoa Kiều Linh tại Tòa GS3, Vinhomes Smart City, Tây Mỗ, Hà Nội. Chất lượng cao, thân thiện với cộng đồng LGBTQ+ và được xây dựng bởi phụ nữ.</p><div class="chips"><span class="chip glass">Women-owned</span><span class="chip glass">LGBTQ+ friendly</span><span class="chip glass">Bó tại chỗ</span><span class="chip glass">Hoa Ly only</span></div></div><form class="form glass" id="orderForm"><div class="field"><label>Họ và tên</label><input required placeholder="Tên của bạn"></div><div class="field"><label>Số điện thoại</label><input required placeholder="09xx xxx xxx"></div><div class="field"><label>Phong cách</label><select><option>Ly Trắng — Pure</option><option>Ly Ấm — Warm</option><option>Ly Tuyên Ngôn — Statement</option><option>Tư vấn giúp tôi</option></select></div><div class="field"><label>Ngân sách</label><select><option>Dưới 800.000đ</option><option>800.000 – 1.200.000đ</option><option>1.200.000đ trở lên</option></select></div><div class="field full"><label>Lời nhắn</label><textarea placeholder="Dịp tặng, mong muốn về cảm giác, thời gian cần hoa..."></textarea></div><button class="submit" type="submit">Gửi yêu cầu đặt hoa</button></form></div></div><div class="contact glass fade"><div><h3>Ghé Hoa Kiều Linh ở Tây Mỗ.</h3><p>Tòa GS3, Vinhomes Smart City, Tây Mỗ, Hà Nội.<br>Hoa Ly sáng, mềm, chỉn chu và đủ sang để làm quà.</p></div><a class="map glass" target="_blank" rel="noopener" href="https://www.google.com/maps/search/?api=1&query=T%C3%B2a+GS3+Vinhomes+Smart+City+T%C3%A2y+M%E1%BB%97+H%C3%A0+N%E1%BB%99i">Mở Google Maps ↗</a></div></div></section>
+</main>
+<footer>© 2026 Hoa Kiều Linh · Lily only, made bright · Vinhomes Smart City · Hà Nội</footer><div class="toast" id="toast">Đã ghi nhận yêu cầu của bạn.</div>
+<script>const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -70px'});document.querySelectorAll('.fade').forEach(el=>io.observe(el));addEventListener('pointermove',e=>{document.documentElement.style.setProperty('--mx',(e.clientX/innerWidth-.5)*18+'px');document.documentElement.style.setProperty('--my',(e.clientY/innerHeight-.5)*14+'px')});const form=document.getElementById('orderForm'),toast=document.getElementById('toast');form.addEventListener('submit',e=>{e.preventDefault();toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2500);form.reset()});</script>
 </body>
 </html>
